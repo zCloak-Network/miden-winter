@@ -12,7 +12,7 @@ edition = "2021"
 rust-version = "1.67"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib"]
 
 [features]
 concurrent = ["prover/concurrent", "std"]
@@ -36,11 +36,8 @@ stdlib = { package = "miden-stdlib", path = "../stdlib", version = "0.4", defaul
 structopt = { version = "0.3", default-features = false }
 verifier = { package = "miden-verifier", path = "../verifier", version = "0.5", default-features = false }
 vm_core = {package = "miden-core", path = "../core", default-features = false}
-# wasm-bindgen = "0.2.83"
-# wasm-bindgen-test = "0.3.24"
-# console_error_panic_hook = "0.1.6"
 winterfell = { package = "winter-prover", path = "../winterfell/prover", default-features = false }
-
+wee_alloc = "0.4.5"
 
 
 [dev-dependencies]
@@ -61,12 +58,8 @@ winterfell = { package = "winter-prover", path = "../winterfell/prover", default
 winter-fri = { package = "winter-fri", path = "../winterfell/fri" }
 winter-utils = { package = "winter-utils", path = "../winterfell/utils/core" }
 
-[package.metadata.wasm-pack.profile.release]
-# `wasm-opt` has some problems on linux, see
-# https://github.com/rustwasm/wasm-pack/issues/781 etc.
-wasm-opt = false
-
 
 [profile.release]
+opt-level = "z"
 lto = true
-opt-level = 's'
+codegen-units = 1

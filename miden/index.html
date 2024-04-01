@@ -15,8 +15,7 @@
         let t1 = new Date() 
         init_panic_hook()
 
-        let program = `
-        proc.number_add.4
+        let program2 = `proc.number_add.4
     dup.0 loc_store.0 push.0 eq
     push.0 loc_store.3
     if.true
@@ -164,133 +163,32 @@ proc.multi_rphash
     end
 end
 
+
+
 begin
-    push.999 mem_store.101 push.1 mem_store.102 adv_push.4 mem_storew.100 dropw
-    exec.read_new_leaf exec.read_and_copy exec.multi_rphash dupw mem_storew.40 dropw adv_push.4 hmerge
-    adv_push.4 swapw hmerge adv_push.4 hmerge
-    padw mem_loadw.100 dupw mem_storew.100 dropw movup.4 eq swap movup.4 eq movup.2 movup.4
-    eq movup.3 movup.4 eq and and and not
-    if.true
-        padw mem_storew.100 dropw
-    end
-    
-    mem_load.99 exec.number_add mul.1 push.18 gte mem_load.102 and mem_store.102
+    push.8003 mem_store.400 
+    mem_load.400 mem_load.400 
+end`;
 
-  
-    exec.read_new_leaf exec.read_and_copy exec.multi_rphash dupw mem_storew.40 dropw adv_push.4 hmerge
-    adv_push.4 swapw hmerge adv_push.4 swapw hmerge
-    padw mem_loadw.100 dupw mem_storew.100 dropw movup.4 eq swap movup.4 eq movup.2 movup.4
-    eq movup.3 movup.4 eq and and and not
-    if.true
-        padw mem_storew.100 dropw
-    end
-    mem_load.99 exec.number_add  mem_store.107 push.1 mem_store.108
-
-   push.4.51.31.48.50.64.96.116.156.268.344.356.360 push.364.368.376.392.400.398.414.417.418.422.446.458 push.462.496.104.524.408.512.586.275 push.608.634.682.702.410.144.760.158 push.762.764.626.792.795.784.860.704.887 
-      repeat.50
-        mem_load.107 eq
-        if.true
-            push.1 mem_store.101 push.0 mem_store.108
-        end
-      end
-
-    mem_load.108 push.1 eq 
-    if.true
-      push.660.28.533.44.52.84.60.92.124.136.188.192.531.212.214.222 push.304.308.312.320.332.340.388.474.484.500.558 push.591.630.652.659.662.663.666.670.534.780.796.840.850
-
-    repeat.40
-      mem_load.107 eq
-      if.true
-        push.3 mem_store.101 push.0 mem_store.108
-      end
-    end
-
-      mem_load.108 push.1 eq 
-      if.true
-        push.8.20.40.112.56.70.100.191.196.203.208.233.234 push.246.250.276.292.300.831.348.352.372.833.380.832.428 push.438.440.442.470.498.492.499.528.807 push.578.616.620.642.643.674.688.703.705.724.752.756.804.826.336
-        push.248.744
-        repeat.52
-            mem_load.107 eq
-            if.true
-              push.2 mem_store.101 push.0 mem_store.108
-            end
-        end
-
-        mem_load.108 push.1 eq 
-        if.true
-          push.32.68.76.152.170.218.238.254.328.600.604.740.858.862
-          push.535.239
-          repeat.16
-              mem_load.107 eq
-              if.true
-                push.5 mem_store.101 push.0 mem_store.108
-              end
-          end
-
-          mem_load.108 push.1 eq 
-          if.true
-            push.16.36.184.242.258.316.296.584.583.520.540 push.554.570.580.585.598.882.90.772.776.798.548.876
-            push.162.166.334.574.612.581
-            repeat.29
-              mem_load.107 eq
-                if.true
-                  push.4 mem_store.101 push.0 mem_store.108
-                end
-            end
-
-            mem_load.108 push.1 eq 
-            if.true
-              push.12.24.204.72.854.108.120.132.140.148.174 push.262.180.818.226.232.748.231.266.270.288.324 push.624.384.404.426.430.434.450.454.466 push.478.480.175.504.508.516.562.566.178 push.638.646.678.686.690.694.706 push.710.728.729.834.768.788.800.732.894.716 
-              push.86.654.260
-              repeat.60
-              mem_load.107 eq
-                if.true
-                    push.0 mem_store.101 push.0 mem_store.108
-                end
-              end
-              
-              mem_load.108 push.1 eq 
-                  if.true
-                      push.10
-                      mem_load.107 eq
-                      if.true
-                          push.6 mem_store.101 push.0
-                      end
-                      push.74
-                      mem_load.107 eq
-                      if.true
-                          push.6 mem_store.101 push.0
-                      end
-                  end
-            end
-          end
-        end
-      end
-    end
-
-    mem_load.101 dup.0 
-    push.999 eq
-    if.true
-        padw mem_loadw.100
-    else 
-        mul.2 mem_load.102 
-        add padw mem_loadw.100
-    end
- end`;
 
         var t = new Date();
         // the first array is public input, the sec is secret input
-        let output = execute_zk_program(program, "","6833784672397792804,1738843643968560814,14461430620336761827,12110009229538442525,19,1,0,0,0,0,0,0,11163774851835570377,9362862845627922325,13487000498173000578,8882224816854508067,14575308179982110358,17433735800768262380,8768951732059513786,4790773657737358814,7542115670608157565,8444373719912261442,14347248385715939903,2960226829132908104,129,156,1,0,0,0,0,0,7077620387898955118,679287600474868924,15132917276352316628,3931973049508962096,5107192246664894678,2229368643187067388,9712480462957145443,1739771992166299667,7060296349883902801,4165408376239840973,2516309578450629202,5759828452952020339")
+        // let output = execute_zk_program(program, "","6833784672397792804,1738843643968560814,14461430620336761827,12110009229538442525,19,1,0,0,0,0,0,0,11163774851835570377,9362862845627922325,13487000498173000578,8882224816854508067,14575308179982110358,17433735800768262380,8768951732059513786,4790773657737358814,7542115670608157565,8444373719912261442,14347248385715939903,2960226829132908104,129,156,1,0,0,0,0,0,7077620387898955118,679287600474868924,15132917276352316628,3931973049508962096,5107192246664894678,2229368643187067388,9712480462957145443,1739771992166299667,7060296349883902801,4165408376239840973,2516309578450629202,5759828452952020339")
+        let output = execute_zk_program(
+            program2,
+            "",
+            "3674729300166447914,7779053615117167694,15124102116683551765,11204930390713932501,132,39,20,151,0,1,0,0,7306380930628892319,15139013299708000191,6401610014106390006,10535066761814401217,8111325681181051195,13886522013551631393,3950656742860325573,1660748009861721615,17982924301787050336,5566739416675350805,6912534093008768096,14337068781135257318",
+          )
 
         var tt = new Date();
         console.log(output)
 
         console.log(tt.getTime() - t.getTime())
-        let program_hash = generate_program_hash(program)
+        let program_hash = generate_program_hash(program2)
 
         console.log(program_hash)
 
-        console.log(verify_zk_bool(program_hash, "", output))        
+        // console.log(verify_zk_bool(program_hash, "", output))        
               }).catch(console.error);
       </script>
   </body>
